@@ -1,0 +1,112 @@
+Write a program to insert an element in an array at the given position. If the position where the element is to be inserted is greater than the size of the array display “Invalid Input”.
+
+Input Format
+
+The first integer corresponds to the size of the array. Read n elements into an array line by line Next integer corresponds to the position where the element is to be inserted. Next integer corresponds to the element to be inserted.
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+Print array after insertion
+
+Sample Input 0
+
+5
+1
+2
+3
+4
+5
+4
+10
+Sample Output 0
+
+1
+2
+3
+10
+4
+5
+Sample Input 1
+
+4
+12
+55
+24
+65
+8
+22
+Sample Output 1
+
+Invalid Input
+Sample Input 2
+
+6
+23
+55
+12
+87
+44
+22
+3
+99
+Sample Output 2
+
+23
+55
+99
+12
+87
+44
+22
+
+
+
+#include <stdio.h>
+
+int main() {
+    int n, position, element;
+    
+    // Read the size of the array
+    scanf("%d", &n);
+    
+    // Declare array to store elements
+    int arr[n];
+    
+    // Read elements of the array
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    
+    // Read the position where the element is to be inserted
+    scanf("%d", &position);
+    
+    // Read the element to be inserted
+    scanf("%d", &element);
+    
+    // Check if position is valid
+    if (position < 1 || position > n+1) {
+        printf("Invalid Input");
+        return 0;
+    }
+    
+    // Shift elements to the right to make space for the new element
+    for (int i = n; i >= position; i--) {
+        arr[i] = arr[i-1];
+    }
+    
+    // Insert the element at the given position
+    arr[position-1] = element;
+    
+    // Print array after insertion
+    for (int i = 0; i < n+1; i++) {
+        printf("%d\n", arr[i]);
+    }
+    
+    return 0;
+}
+
+
