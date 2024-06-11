@@ -1,0 +1,91 @@
+Write a program to find whether the two arrays are the same or not. Two arrays are said to be the same if the elements of both the arrays is the same and the size of arrays is the same.
+
+Input Format
+
+First number represents the size of first array Second number represents the size of second array Read elements of the first array side based on First number Read elements of the second array side based on Second number
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+If two arrays are same, display "Same" else display "Not Same"
+
+Sample Input 0
+
+3
+3
+1 2 3
+1 2 3
+Sample Output 0
+
+Same
+Sample Input 1
+
+3
+3
+1 2 1
+2 3 6
+Sample Output 1
+
+Not Same
+Sample Input 2
+
+3
+4
+1 2 3
+1 2 3 4
+Sample Output 2
+
+Not Same
+Sample Input 3
+
+5
+5
+22 11 33 44 55
+22 11 33 55 44
+Sample Output 3    
+
+
+#include <stdio.h>
+
+int main() {
+    int n, m;
+    
+    // Read the sizes of the arrays
+    scanf("%d %d", &n, &m);
+    
+    // Check if the sizes are the same
+    if (n != m) {
+        printf("Not Same");
+        return 0;
+    }
+    
+    // Declare arrays to store elements
+    int arr1[n], arr2[m];
+    
+    // Read elements of the first array
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr1[i]);
+    }
+    
+    // Read elements of the second array
+    for (int i = 0; i < m; i++) {
+        scanf("%d", &arr2[i]);
+    }
+    
+    // Compare elements of both arrays
+    for (int i = 0; i < n; i++) {
+        if (arr1[i] != arr2[i]) {
+            printf("Not Same");
+            return 0;
+        }
+    }
+    
+    // If all elements are same, arrays are the same
+    printf("Same");
+    
+    return 0;
+}
+
