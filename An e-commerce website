@@ -1,0 +1,68 @@
+An e-commerce website wishes to analyze the pre-day sales of their products. The products are tagged from a to z and A to Z. The daily sales are merged into a sequence of the tags of the products sold in the day. The company wishes to identify the products that are purchased only one time in the day. Write an algorithm to find the count of the product tags that occur only once in the sales sequence.
+
+Input Format
+
+The input consists of a string salessequence, representing the sales of the day.
+
+Constraints
+
+string Note: The input string salessequence is case sensitive. Uppercase characters and lowercase characters are counted as different.
+
+Output Format
+
+Print an integer representing the count of the product tags that occur only once in the sales sequence.
+
+Sample Input 0
+
+alphaadida
+Sample Output 0
+
+4
+Explanation 0
+
+The products tags that occurred once in the sales sequence are l,p,h,i. So the output is 4.
+
+Sample Input 1
+
+PropErformer
+Sample Output 1
+
+6
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char salessequence[1000];
+    int count[256] = {0}; // Initialize count array for ASCII characters
+    
+    // Input the sales sequence
+    scanf("%s", salessequence);
+
+    // Count the occurrence of each character in the sales sequence
+    for (int i = 0; i < strlen(salessequence); i++) {
+        count[salessequence[i]]++;
+    }
+
+    // Initialize a variable to store the count of product tags occurring only once
+    int uniqueCount = 0;
+
+    // Check each character's count, increment uniqueCount if count is 1
+    for (int i = 0; i < strlen(salessequence); i++) {
+        if (count[salessequence[i]] == 1) {
+            uniqueCount++;
+            // Set count of the character to 0 to avoid counting it again
+            count[salessequence[i]] = 0;
+        }
+    }
+
+    // Output the count of product tags occurring only once
+    printf("%d\n", uniqueCount);
+
+    return 0;
+}
+
