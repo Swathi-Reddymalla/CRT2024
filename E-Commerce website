@@ -1,0 +1,64 @@
+The delivery requests of an e-commerce website are depicted in the form of strings tagged ‘a-z’ or ‘A-Z’. Each character of the string represents the number of products that need to be delivered for that respective code. Due to limited delivery windows the website has decided to deliver the products whose codes represents the largest and the smallest values in the string. The company needs to find out the total number of products delivered. Write an algorithm to find out the total number of products delivered.
+
+Input Format
+
+The input consists of a string – requestString, represented the delivery request.
+
+Constraints
+
+string
+
+Output Format
+
+Print an integer representing the total number of products delivered.
+
+Sample Input 0
+
+aAkliP
+Sample Output 0
+
+173
+Explanation 0
+
+The ASCII value of the characters in the string are as follows: a=97 A=65 k=107 l=108 i=105 P=80 The sum of smallest and the largest ascii values is 65+108=173 Hence the output is 173.
+
+Sample Input 1
+
+PYthon
+Sample Output 1
+
+196
+
+
+
+#include <stdio.h>
+
+int main() {
+    char requestString[100]; // Assuming the maximum length of the string is 100
+    int smallest = 127; // Initialize with a value greater than the ASCII range
+    int largest = 0; // Initialize with a value smaller than the ASCII range
+
+    // Input the delivery request string
+    printf("Enter the delivery request string: ");
+    scanf("%s", requestString);
+
+    // Iterate through each character in the string
+    for (int i = 0; requestString[i] != '\0'; i++) {
+        // Check if the current character is smaller than the smallest value
+        if (requestString[i] < smallest) {
+            smallest = requestString[i]; // Update the smallest value
+        }
+        // Check if the current character is larger than the largest value
+        if (requestString[i] > largest) {
+            largest = requestString[i]; // Update the largest value
+        }
+    }
+
+    // Calculate the total number of products delivered
+    int totalProducts = smallest + largest;
+
+    // Print the total number of products delivered
+    printf("Total number of products delivered: %d\n", totalProducts);
+
+    return 0;
+}
