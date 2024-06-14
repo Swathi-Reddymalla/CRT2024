@@ -1,0 +1,72 @@
+Write a program to find the sum of elements in each column.
+
+Input Format
+
+Read size of rows and columns Read elements of the array
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+Print sum of each column in seperate line
+
+Sample Input 0
+
+3
+3
+3 5 1
+7 3 2
+0 54 2
+Sample Output 0
+
+10
+62
+5
+Sample Input 1
+
+3
+4
+1 2 3 4
+5 6 7 8
+9 0 3 5
+Sample Output 1
+
+15
+8
+13
+17
+
+
+#include <stdio.h>
+
+int main() {
+    int numRows, numCols;
+    
+    scanf("%d", &numRows);
+    
+    scanf("%d", &numCols);
+
+    int matrix[numRows][numCols];
+
+    
+    for (int i = 0; i < numRows; i++) {
+        for (int j = 0; j < numCols; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    // Finding the sum of elements in each column
+    
+    for (int j = 0; j < numCols; j++) {
+        int colSum = 0;
+        for (int i = 0; i < numRows; i++) {
+            colSum += matrix[i][j];
+        }
+        printf("%d\n", colSum);
+    }
+
+    return 0;
+}
+
