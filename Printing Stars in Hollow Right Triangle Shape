@@ -1,0 +1,68 @@
+rinting Stars in Hollow Right Triangle Shape
+
+Input Format
+
+Read n value
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+Printing Stars in Hollow Right Triangle Shape
+
+Sample Input 0
+
+5
+Sample Output 0
+
+* * * * * 
+  *     * 
+    *   * 
+      * * 
+        * 
+Sample Input 1
+
+10
+Sample Output 1
+
+* * * * * * * * * * 
+  *               * 
+    *             * 
+      *           * 
+        *         * 
+          *       * 
+            *     * 
+              *   * 
+                * * 
+                  * 
+
+
+
+#include <stdio.h>
+
+int main() {
+    int n, i, j;
+    scanf("%d", &n);
+
+    // Printing the right triangle
+    for (i = 1; i <= n; i++) {
+        // Printing spaces
+        for (j = 1; j < i; j++) {
+            printf("  ");
+        }
+        // Printing stars
+        for (j = i; j <= n; j++) {
+            if (i == 1 || i == n || j == n || j == i) {
+                printf("* ");
+            } else {
+                printf("  ");
+            }
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
