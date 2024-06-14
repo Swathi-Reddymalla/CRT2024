@@ -1,0 +1,64 @@
+Printing Stars in Hollow Left Triangle Shape
+
+Input Format
+
+Read n value
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+Printing Stars in Hollow Left Triangle Shape
+
+Sample Input 0
+
+5
+Sample Output 0
+
+* 
+* * 
+*   * 
+*     * 
+* * * * * 
+Sample Input 1
+
+7
+Sample Output 1
+
+* 
+* * 
+*   * 
+*     * 
+*       * 
+*         * 
+* * * * * * * 
+
+
+#include <stdio.h>
+
+int main() {
+    int n, i, j;
+    scanf("%d", &n);
+
+    // Printing the left triangle
+    for (i = 1; i <= n; i++) {
+        // Printing stars
+        for (j = 1; j <= i; j++) {
+            // Print '*' for the first column and rows equal to n,
+            // or when j is 1 or j is equal to i.
+            if (j == 1 || i == n || j == i) {
+                printf("* ");
+            } else {
+                // Otherwise, print a space.
+                printf("  ");
+            }
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
