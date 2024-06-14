@@ -1,0 +1,76 @@
+The company Digital Secure Data Transfer Solutions provides data encryption and data sharing services. Their process uses a key K for encryption when transmitting characters. To encrypt a character, the character is replaced by the following Kth character with the same case in the English alphabet set. The English alphabetical set is considered in a cyclic fashion for the last K characters. Write an algorithm to find the character used to encrypt the given character.
+
+Input Format
+
+The input consists of a space-separated character and integer – character and key, representing the character to be transmitted, and the key (K), respectively.
+
+Constraints
+
+NA
+
+Output Format
+
+Print a character representing the encrypted character.
+
+Sample Input 0
+
+D
+3
+Sample Output 0
+
+G
+Explanation 0
+
+Replace D with G. So, the output is G.
+
+Sample Input 1
+
+b
+29
+Sample Output 1
+
+e
+Sample Input 2
+
+E
+110
+Sample Output 2
+
+K
+
+
+
+#include <stdio.h>
+
+char encryptCharacter(char ch, int key) {
+    // Check if the character is uppercase
+    if (ch >= 'A' && ch <= 'Z') {
+        // Encrypt uppercase character
+        return 'A' + ((ch - 'A' + key) % 26);
+    }
+    // Check if the character is lowercase
+    else if (ch >= 'a' && ch <= 'z') {
+        // Encrypt lowercase character
+        return 'a' + ((ch - 'a' + key) % 26);
+    }
+    // If the character is not a letter, return as it is
+    else {
+        return ch;
+    }
+}
+
+int main() {
+    char ch;
+    int key;
+
+    // Input the character and the key
+    
+    scanf(" %c", &ch);
+
+    scanf("%d", &key);
+
+    // Encrypt the character and print the result
+    printf("%c\n", encryptCharacter(ch, key));
+
+    return 0;
+}
