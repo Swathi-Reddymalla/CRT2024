@@ -1,0 +1,95 @@
+Write a program to find the sum of elements in each row and column and also to find the greatest sum in rows and columns.
+
+Input Format
+
+Read size of rows and columns Read elements for matrix
+
+Constraints
+
+1<=n<10^7
+
+Output Format
+
+Print sum of rows in first line Print highest row no in next line Print sum of columns in next line Print highest column no in next line
+
+Sample Input 0
+
+3
+3
+1 6 8
+2 5 1
+3 8 2
+Sample Output 0
+
+15 8 13
+Row 1
+6 19 11
+Column 2
+
+
+
+
+#include <stdio.h>
+
+int main() {
+    int numRows, numCols;
+    scanf("%d", &numRows);
+
+    scanf("%d", &numCols);
+
+    int matrix[numRows][numCols];
+
+    
+    for (int i = 0; i < numRows; i++) {
+        for (int j = 0; j < numCols; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    // Finding the sum of elements in each row and column
+    int rowSum[numRows], colSum[numCols];
+    for (int i = 0; i < numRows; i++) {
+        rowSum[i] = 0;
+        for (int j = 0; j < numCols; j++) {
+            rowSum[i] += matrix[i][j];
+        }
+    }
+    for (int j = 0; j < numCols; j++) {
+        colSum[j] = 0;
+        for (int i = 0; i < numRows; i++) {
+            colSum[j] += matrix[i][j];
+        }
+    }
+
+    // Finding the maximum sum in rows and columns
+    int maxRowSum = rowSum[0], maxRowNo = 1;
+    int maxColSum = colSum[0], maxColNo = 1;
+    for (int i = 1; i < numRows; i++) {
+        if (rowSum[i] > maxRowSum) {
+            maxRowSum = rowSum[i];
+            maxRowNo = i + 1;
+        }
+    }
+    for (int j = 1; j < numCols; j++) {
+        if (colSum[j] > maxColSum) {
+            maxColSum = colSum[j];
+            maxColNo = j + 1;
+        }
+    }
+
+    // Printing the sum of elements in each row
+    
+    for (int i = 0; i < numRows; i++) {
+        printf("%d ", rowSum[i]);
+    }
+    printf("\nRow %d\n", maxRowNo);
+
+    // Printing the sum of elements in each column
+
+    for (int j = 0; j < numCols; j++) {
+        printf("%d ", colSum[j]);
+    } 
+    printf("\nColumn %d\n", maxColNo);
+
+    return 0;
+}
