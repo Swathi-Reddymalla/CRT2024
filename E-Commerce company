@@ -1,0 +1,63 @@
+An e-commerce company has a product list in its database. Each product key in the list is space separated, but due to a bug all the product keys were combined, converting the list into a string. The manager wishes to reproduce the product list by adding whitespaces after every X character in the string formed due to the bug.
+
+Write an algorithm that will take t string formed due to the bug and put whitespaces after every X character in the string
+
+Input Format
+
+The first line of the input consists of string formed from the due to the bug. The last line consists of an integer charCount representing the number of characters after which whitespaces should be added in the string formed by the bug (X).
+
+Constraints
+
+string
+
+Output Format
+
+Print a space-separated string containing the product keys. The string should contain whitespaces after each charCount character.
+
+Note If charCount is more than the last remaining characters, those characters will be used as they are.
+
+Sample Input 0
+
+abcdefg
+2
+Sample Output 0
+
+ab cd ef g
+Sample Input 1
+
+language
+3
+Sample Output 1
+
+lan gua ge
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[1000];
+    int charCount;
+
+    // Input the string formed by the bug
+    fgets(str, sizeof(str), stdin);
+
+    // Remove the newline character from the end of the string
+    str[strcspn(str, "\n")] = '\0';
+
+    // Input the character count after which whitespaces should be added
+    scanf("%d", &charCount);
+
+    // Output the modified string
+    for (int i = 0; i < strlen(str); i++) {
+        putchar(str[i]);
+        // Add a whitespace if the index is a multiple of charCount
+        if ((i + 1) % charCount == 0) {
+            putchar(' ');
+        }
+    }
+
+    return 0;
+}
+
