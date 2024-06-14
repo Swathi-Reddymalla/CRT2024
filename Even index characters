@@ -1,0 +1,54 @@
+Accept string from the user and display only those characters which are present at an even index
+
+Input Format
+
+Read a string
+
+Constraints
+
+string
+
+Output Format
+
+Printing the Even Index Positions and its value one by one
+
+Sample Input 0
+
+python
+Sample Output 0
+
+0 p
+2 t
+4 o
+Sample Input 1
+
+Programming
+Sample Output 1
+
+0 P
+2 o
+4 r
+6 m
+8 i
+10 g
+
+
+#include <stdio.h>
+
+int main() {
+    char str[201]; // Assuming the maximum length of the string is 200
+    int i =0;
+    fgets(str, sizeof(str), stdin);
+
+    // Iterate through each character in the string
+    while (str[i] != '\0') {
+        // Check if the index is even
+        if (i % 2 == 0) {
+            printf("%d %c\n", i, str[i]); // Print the index and the character
+        }
+        i++;
+    }
+
+    return 0;
+}
+
