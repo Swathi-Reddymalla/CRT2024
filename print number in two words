@@ -1,0 +1,86 @@
+Write a code to read a number and print number in words
+
+Input Format
+
+Read n value
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+Print number in words
+
+Sample Input 0
+
+3456
+Sample Output 0
+
+THREE FOUR FIVE SIX
+
+
+
+
+#include <stdio.h>
+
+// Function to print a single digit in words
+void printDigit(int digit) {
+    switch(digit) {
+        case 0:
+            printf("ZERO ");
+            break;
+        case 1:
+            printf("ONE ");
+            break;
+        case 2:
+            printf("TWO ");
+            break;
+        case 3:
+            printf("THREE ");
+            break;
+        case 4:
+            printf("FOUR ");
+            break;
+        case 5:
+            printf("FIVE ");
+            break;
+        case 6:
+            printf("SIX ");
+            break;
+        case 7:
+            printf("SEVEN ");
+            break;
+        case 8:
+            printf("EIGHT ");
+            break;
+        case 9:
+            printf("NINE ");
+            break;
+    }
+}
+
+int main() {
+    int num, reversedNum = 0, remainder;
+    
+    // Taking input
+    
+    scanf("%d", &num);
+    
+    // Reversing the number
+    while(num != 0) {
+        remainder = num % 10;
+        reversedNum = reversedNum * 10 + remainder;
+        num /= 10;
+    }
+    
+    // Printing the number in words
+    
+    while(reversedNum != 0) {
+        remainder = reversedNum % 10;
+        printDigit(remainder);
+        reversedNum /= 10;
+    }
+    
+    return 0;
+}
