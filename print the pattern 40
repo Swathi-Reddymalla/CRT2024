@@ -1,0 +1,88 @@
+Print the pattern
+
+Input Format
+
+Read no of rows
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+print pattern
+
+Sample Input 0
+
+5
+Sample Output 0
+
+*****
+ ****
+  ***
+   **
+    *
+Sample Input 1
+
+10
+Sample Output 1
+
+**********
+ *********
+  ********
+   *******
+    ******
+     *****
+      ****
+       ***
+        **
+         *
+Sample Input 2
+
+13
+Sample Output 2
+
+*************
+ ************
+  ***********
+   **********
+    *********
+     ********
+      *******
+       ******
+        *****
+         ****
+          ***
+           **
+            *
+
+
+
+
+#include <stdio.h>
+
+int main() {
+    int rows, i, j;
+    
+    // Taking input
+
+    scanf("%d", &rows);
+    
+    // Loop to iterate through each row
+    for (i = 0; i < rows; i++) {
+        // Print spaces before the stars
+        for (j = 0; j < i; j++) {
+            printf(" ");
+        }
+        
+        // Print stars for each row
+        for (j = 0; j < rows - i; j++) {
+            printf("*");
+        }
+        
+        // Move to the next line
+        printf("\n");
+    }
+    
+    return 0;
+}
