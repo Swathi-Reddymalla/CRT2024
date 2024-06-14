@@ -1,0 +1,76 @@
+Printing Stars in Hollow Equilateral Triangle Shape
+
+Input Format
+
+Read n value
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+Printing Stars in Hollow Equilateral Triangle Shape
+
+Sample Input 0
+
+6
+Sample Output 0
+
+     * 
+    * * 
+   *   * 
+  *     * 
+ *       * 
+* * * * * * 
+Sample Input 1
+
+9
+Sample Output 1
+
+        * 
+       * * 
+      *   * 
+     *     * 
+    *       * 
+   *         * 
+  *           * 
+ *             * 
+* * * * * * * * * 
+
+
+
+
+#include <stdio.h>
+
+int main() {
+    int n, i, j;
+    scanf("%d", &n);
+    
+    // Printing the upper part of the triangle
+    for (i = 1; i < n; i++) {
+        // Printing spaces
+        for (j = i; j < n; j++) {
+            printf(" ");
+        }
+        // Printing stars
+        printf("*");
+        // Printing spaces inside the triangle
+        for (j = 1; j <= 2 * i - 3; j++) {
+            printf(" ");
+        }
+        // Printing stars except for the first row
+        if (i != 1) {
+            printf("*");
+        }
+        printf("\n");
+    }
+    
+    // Printing the last row of stars
+    for (i = 1; i <= n; i++) {
+        printf("* ");
+    }
+    printf("\n");
+    
+    return 0;
+}
