@@ -1,0 +1,65 @@
+Write a program to sort the given string.
+
+Input Format
+
+Read a string
+
+Constraints
+
+string
+
+Output Format
+
+print the ascending order of given string.
+
+Sample Input 0
+
+god
+Sample Output 0
+
+dgo
+Sample Input 1
+
+python
+Sample Output 1
+
+hnopty
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200], temp;
+    int i, j, n;
+
+    // Input the string
+    
+    fgets(str, sizeof(str), stdin);
+
+    // Find the length of the string
+    n = strlen(str);
+
+    // Remove the newline character
+    if (str[n - 1] == '\n') {
+        str[n - 1] = '\0';
+        n--;
+    }
+
+    // Sort the string using bubble sort algorithm
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (str[j] > str[j + 1]) {
+                temp = str[j];
+                str[j] = str[j + 1];
+                str[j + 1] = temp;
+            }
+        }
+    }
+
+    // Output the sorted string
+    printf("%s\n", str);
+
+    return 0;
+}
