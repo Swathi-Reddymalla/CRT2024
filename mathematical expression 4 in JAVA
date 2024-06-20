@@ -1,0 +1,51 @@
+The expression will be one of the following expressions:
+
+A + B = C, A - B = C and A * B = C.
+
+where A, B, C are three numbers, S is the sign between A and B, and Q is the '=' sign.
+
+If the expression is right print "Yes", Otherwise print the right answer of the expression.
+
+
+program
+
+import java.util.Scanner;
+
+public class ExpressionEvaluator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+        scanner.nextLine(); 
+        for (int i = 0; i < t; i++) {
+            String expression = scanner.nextLine().trim();
+            String[] parts = expression.split(" ");
+            int A = Integer.parseInt(parts[0]);
+            char S = parts[1].charAt(0);
+            int B = Integer.parseInt(parts[2]);
+            char Q = parts[3].charAt(0);
+            int C = Integer.parseInt(parts[4]);
+            int result;
+            switch (S) {
+                case '+':
+                    result = A + B;
+                    break;
+                case '-':
+                    result = A - B;
+                    break;
+                case '*':
+                    result = A * B;
+                    break;
+                default:
+                    result = 0; 
+                    break;
+            }
+            if (Q == '=' && result == C) {
+                System.out.println("Yes");
+            } else {
+                System.out.println(result);
+            }
+        }
+        
+        scanner.close();
+    }
+}
