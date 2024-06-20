@@ -1,0 +1,50 @@
+Given two numbers, print maximum of two numbers.z
+
+Input Format
+
+A B - Two space separated integers on one line.
+
+Constraints
+
+-1018 <= A, B <= 1018
+
+Output Format
+
+Print maximum of A and B.
+
+Sample Input 0
+
+4 5
+Sample Output 0
+
+5
+Explanation 0
+
+5 is greater than 4 so, Answer is 5
+
+
+program
+
+import java.util.Scanner;
+
+public class MaximumOfTwoNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Step 1: Read input
+        String inputLine = scanner.nextLine().trim();
+        String[] tokens = inputLine.split(" ");
+        
+        // Convert input tokens to integers
+        long A = Long.parseLong(tokens[0]);
+        long B = Long.parseLong(tokens[1]);
+        
+        // Step 2: Determine the maximum of A and B
+        long maximumNumber = Math.max(A, B);
+        
+        // Step 3: Print the result
+        System.out.println(maximumNumber);
+        
+        scanner.close();
+    }
+}
