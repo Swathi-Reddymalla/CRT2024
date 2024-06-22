@@ -1,0 +1,66 @@
+Write a program to display all the Prime Numbers between a given range of numbers.
+
+Input Format
+
+Line 1: Line 2:
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+Sample Input 0
+
+25
+50
+Sample Output 0
+
+29 31 37 41 43 47
+Sample Input 1
+
+100
+200
+Sample Output 1
+
+101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 193 197 199
+
+
+
+#include <stdio.h>
+#include <stdbool.h>
+
+void findPrimes(int n, int m) {
+    bool isPrime[m+1];
+    for (int i = 0; i <= m; i++) {
+        isPrime[i] = true;
+    }
+    
+    isPrime[0] = isPrime[1] = false; 
+    
+    for (int p = 2; p * p <= m; p++) {
+        if (isPrime[p] == true) {
+            
+            for (int i = p * p; i <= m; i += p) {
+                isPrime[i] = false;
+            }
+        }
+    }
+    
+    for (int i = n; i <= m; i++) {
+        if (isPrime[i]) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    int n, m;
+    scanf("%d", &n);
+    scanf("%d", &m);
+    
+    findPrimes(n, m);
+    
+    return 0;
+}
