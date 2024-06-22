@@ -1,0 +1,59 @@
+You are playing an online game. In the game, a numbers is displayed on the screen. In order to win the game, you have to Count the trailing zeros in the factorial value of the given number. Write an algorithm to count the trailing zeros in the factorial value of the given number.
+
+Input Format
+
+The input consists of an integer num, representing the number displayed on the screen.
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+Print An integer representing the count of trailing zeros in the factorial of the given numbers.
+
+Sample Input 0
+
+5
+Sample Output 0
+
+1
+Explanation 0
+
+On calculating the factorial of 5, the output is 120 (1 x2x3x4x5). There is only one trailing 0 in 120, So the output is 1.
+
+Sample Input 1
+
+4
+Sample Output 1
+
+0
+Sample Input 2
+
+7
+Sample Output 2
+
+1
+
+
+#include <stdio.h>
+
+int count_trailing_zeros_in_factorial(int n) {
+    int count_zeros = 0;
+    for (int i = 5; n / i >= 1; i *= 5) {
+        count_zeros += n / i;
+    }
+    
+    return count_zeros;
+}
+
+int main() {
+    int num;
+    scanf("%d", &num);
+    
+    int result = count_trailing_zeros_in_factorial(num);
+    
+    printf("%d\n", result);
+    
+    return 0;
+}
