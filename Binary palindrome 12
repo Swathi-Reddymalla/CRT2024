@@ -1,0 +1,78 @@
+Given an integer n, write a program that returns "yes" if binary representation of n is palindrome else return "no".
+
+Input Format
+
+Read a number
+
+Constraints
+
+1<=n<=10000
+
+Output Format
+
+print yes or no
+
+Sample Input 0
+
+9
+Sample Output 0
+
+yes
+Explanation 0
+
+9 binary value is 1001
+1001 is palindrome that's why output is "yes"
+
+Sample Input 1
+
+123
+Sample Output 1
+
+no
+Explanation 1
+
+123 binary value is 1111011
+That's why output is "no"
+
+
+#include <stdio.h>
+#include <string.h>
+
+// Function to check if a string is palindrome
+int isPalindrome(char *str) {
+    int len = strlen(str);
+    int left = 0;
+    int right = len - 1;
+    
+    while (left < right) {
+        if (str[left] != str[right]) {
+            return 0; // Not a palindrome
+        }
+        left++;
+        right--;
+    }
+    return 1; // Palindrome
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    
+    // Convert n to binary string
+    char binary[17]; // Enough to store 16-bit binary number
+    int index = 0;
+    while (n > 0) {
+        binary[index++] = (n % 2) + '0';
+        n /= 2;
+    }
+    binary[index] = '\0'; // Null-terminate the string
+    
+    // Check if binary string is palindrome
+    if (isPalindrome(binary)) {
+        printf("yes\n");
+    } else {
+        printf("no\n");
+    }
+    
+    return 0;
+}
